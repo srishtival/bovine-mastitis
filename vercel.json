@@ -1,7 +1,15 @@
 {
-	"functions": {
-		"api/**/*.py": {
-			"includeFiles": "models/**"
-			}
-		}
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "source": "/api/(.*)",
+      "destination": "api/index.py"
+    }
+  ]
 }
