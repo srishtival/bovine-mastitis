@@ -27,8 +27,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-APP_ROOT = Path(__file__).resolve().parents[2]
-ROOT_DIR = Path(__file__).resolve().parents[3]
+ROOT_DIR = Path(__file__).resolve().parents[1]
+
+MODEL_DIR = ROOT_DIR / "models"
 
 # Load trained model artifacts
 MODEL_DIR = ROOT_DIR / "models"
