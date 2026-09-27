@@ -47,7 +47,7 @@ MODEL_PATHS = {
         "label": MODEL_DIR / "mastitis_risk_label_14d_final.pkl",
     },
 }
-CSV_RECORD_PATH = APP_ROOT / "myapp_cow_mastitis_records.csv"
+CSV_RECORD_PATH = ROOT_DIR / "myapp_cow_mastitis_records.csv"
 MODEL_FEATURES = [
     'milk_ec', 'milk_temperature_c', 'udder_temperature_c', 'activity_index',
     'milk_colour_code',
@@ -97,7 +97,7 @@ def get_loaded_models(forecast_horizon_days: int) -> dict[str, Any]:
             "to train the models (the requirements pin the compatible major version)."
         ) from exc
 
-@app.get("/")
+@.get("/")
 def root():
     return {
         "status": "active",
@@ -105,7 +105,7 @@ def root():
         "docs": "/docs"
     }
 
-@app.get("/health")
+@.get("/health")
 def health_check():
     models = {}
     load_error = None
@@ -125,7 +125,7 @@ def health_check():
         "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
     }
 
-@app.post("/predict_cow", response_model=PredictionResponse)
+@.post("/predict_cow", response_model=PredictionResponse)
 def predict_individual_cow(inp: CowSensorInput):
     horizon = inp.forecast_horizon_days
     try:
