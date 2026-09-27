@@ -47,7 +47,8 @@ MODEL_PATHS = {
         "label": MODEL_DIR / "mastitis_risk_label_14d_final.pkl",
     },
 }
-CSV_RECORD_PATH = ROOT_DIR / "myapp_cow_mastitis_records.csv"
+#CSV_RECORD_PATH = ROOT_DIR / "myapp_cow_mastitis_records.csv"
+CSV_RECORD_PATH = Path("/tmp") / "myapp_cow_mastitis_records.csv"
 MODEL_FEATURES = [
     'milk_ec', 'milk_temperature_c', 'udder_temperature_c', 'activity_index',
     'milk_colour_code',
